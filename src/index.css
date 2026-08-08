@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --font-body: "Inter", sans-serif;
+
+  --color-ink: #101b24;
+  --color-panel: #16232e;
+  --color-panel-raised: #1d2f3d;
+  --color-hairline: #2b4152;
+  --color-paper: #efe7d8;
+  --color-paper-dim: #d9d0bd;
+  --color-brass: #c89b3c;
+  --color-brass-bright: #e0b559;
+  --color-teal: #6fb8ae;
+  --color-coral: #e2725b;
+  --color-mist: #8fa3b3;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-ink);
+  font-family: var(--font-body);
+  background-image:
+    radial-gradient(circle at 15% 0%, rgba(200, 155, 60, 0.06), transparent 40%),
+    radial-gradient(circle at 85% 100%, rgba(111, 184, 174, 0.05), transparent 45%);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* subtle etched paper texture for gauge faces */
+.paper-face {
+  background-color: var(--color-paper);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(16, 27, 36, 0.035) 0px, rgba(16, 27, 36, 0.035) 1px, transparent 1px, transparent 3px);
+}
+
+::selection {
+  background: var(--color-brass);
+  color: var(--color-ink);
+}
+
+/* horizontal scroll strip, hide scrollbar but keep function */
+.log-strip::-webkit-scrollbar {
+  height: 6px;
+}
+.log-strip::-webkit-scrollbar-thumb {
+  background: var(--color-hairline);
+  border-radius: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
